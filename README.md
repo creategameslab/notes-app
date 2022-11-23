@@ -26,3 +26,5 @@ api/note/id   -> [get] note by id
 api/note/id   -> [delete] remove note
 api/note      -> [post] add a note
 api/note/id   -> [patch] update a note by id
+
+![App Preview](https://github.com/creategameslab/notes-app/blob/main/SimpleApp.gif)
