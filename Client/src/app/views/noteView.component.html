@@ -1,0 +1,16 @@
+﻿<div class="my-1 mx-1 card">
+    <div class="card-body">
+        <h5 class="card-title">
+            Note [{{item.created | date:'short' }}]
+
+        </h5>
+        <p class="card-text">
+            {{item.rawText}}
+
+        </p>
+        <button (click)="noteService.deleteNote(item)" class="btn btn-danger">
+            Delete Note
+        </button>
+        <a class="btn mx-3" (click)="noteService.edit(item.id)">Edit</a>
+    </div>
+</div>

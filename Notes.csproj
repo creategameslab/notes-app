@@ -1,0 +1,19 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net7.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Client\src\app\services\store.service.ts" />
+  </ItemGroup>
+
+  <Target Name="PublishScripts" BeforeTargets="BeforePublish">
+    <Exec Command="npm install" />
+    <Exec Command="npm install" WorkingDirectory=".\\Client" />
+    <Exec Command="ng build --configuration production --output-hashing none" WorkingDirectory=".\\Client" />
+  </Target>
+
+</Project>

@@ -1,0 +1,23 @@
+﻿<div class="row">
+    <div class="col-lg-12">
+        <div class="card card-body">
+            <h5 class="card-title">
+                <span *ngIf="noteService.editing; else elseBlock">Edit Note {{noteService.note.id}}</span>
+                <ng-template #elseBlock>Add Note</ng-template>
+            </h5>
+            <div class="mb-3">
+                <textarea class="form-control" rows="3" [(ngModel)]="noteService.note.rawText" maxlength="255"></textarea>
+                <span class="alert-info">{{noteService.note.rawText.length}}/255</span>
+            </div>
+            <button class="btn btn-primary" (click)="noteService.addNote()">
+                <div *ngIf="noteService.editing; else elseBlock">Update Note</div>
+                <ng-template #elseBlock>Add Note</ng-template>
+            </button>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div *ngFor="let note of noteService.notes" class="col-md-4">
+        <note [item]="note"></note>
+    </div>
+</div>
